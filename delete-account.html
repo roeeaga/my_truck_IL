@@ -4,76 +4,64 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מחיקת חשבון — MY TRUCK</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Heebo',sans-serif;background:#F0F9FF;color:#1E293B;direction:rtl;padding:0;}
-nav{background:#1E3A8A;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{color:#fff;font-size:1.2rem;font-weight:900;text-decoration:none;}
-.nav-back{color:#BAE6FD;font-size:.9rem;text-decoration:none;font-weight:600;}
-.nav-back:hover{color:#fff;}
-.content{max-width:700px;margin:0 auto;padding:40px 24px 80px;}
-h1{font-size:2rem;font-weight:900;color:#1E3A8A;text-align:center;margin-bottom:24px;}
-.section{background:#fff;border-radius:14px;padding:28px;margin-bottom:16px;border-right:4px solid #1E3A8A;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.section.red{border-right-color:#EF4444;}
-h2{font-size:1.1rem;font-weight:800;color:#1E3A8A;margin-bottom:12px;}
-p{font-size:.95rem;color:#334155;line-height:1.85;margin-bottom:10px;}
-ol{margin:12px 16px 12px 0;padding:0;}
-ol li{font-size:.95rem;color:#334155;line-height:2;margin-bottom:4px;}
-.data-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.9rem;}
-.data-table th{background:#FEF2F2;color:#991B1B;font-weight:800;padding:10px 12px;text-align:right;border:1px solid #FECACA;}
-.data-table td{padding:10px 12px;border:1px solid #E2E8F0;color:#334155;line-height:1.6;text-align:right;vertical-align:top;}
-tr:nth-child(even) td{background:#F8FAFC;}
-.contact-box{background:#FEF2F2;border-radius:12px;padding:20px;margin-top:16px;text-align:center;}
-.contact-box a{color:#1E3A8A;font-weight:800;text-decoration:none;font-size:1.1rem;}
-.contact-box p{margin-bottom:6px;}
-.note{font-size:.85rem;color:#64748B;margin-top:8px;}
-</style>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<nav>
-  <a class="nav-back" href="index.html">← חזרה לדף הבית</a>
-  <a class="nav-logo" href="index.html">🚚 MY TRUCK</a>
-</nav>
-<div class="content">
-  <h1>בקשה למחיקת חשבון ונתונים</h1>
-
-  <div class="section">
-    <h2>כיצד לבקש מחיקת חשבון</h2>
-    <p>אם ברצונך למחוק את חשבונך באפליקציית MY TRUCK ואת כל הנתונים המשויכים אליו, בצע את השלבים הבאים:</p>
-    <ol>
-      <li><strong>שלח אימייל</strong> לכתובת <a href="mailto:office@mytruck-il.com" style="color:#1E3A8A;font-weight:700;">office@mytruck-il.com</a></li>
-      <li>בנושא ההודעה כתוב: <strong>"בקשה למחיקת חשבון"</strong></li>
-      <li>ציין את <strong>כתובת האימייל</strong> שאיתה נרשמת לאפליקציה</li>
-      <li>נאשר את קבלת הבקשה תוך <strong>3 ימי עסקים</strong></li>
-      <li>החשבון והנתונים יימחקו לצמיתות תוך <strong>30 יום</strong></li>
-    </ol>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="icon_80.png" alt="לוגו MY TRUCK"> MY TRUCK</a>
+    <a href="index.html" class="legal-back" style="margin:0;"><i data-lucide="arrow-right" style="width:16px;"></i> חזרה לדף הבית</a>
   </div>
+</header>
 
-  <div class="section red">
-    <h2>אילו נתונים יימחקו</h2>
-    <table class="data-table">
-      <tr><th>סוג המידע</th><th>פעולה</th></tr>
-      <tr><td>פרטי חשבון (אימייל, שם, טלפון, עיר)</td><td>יימחק לצמיתות</td></tr>
-      <tr><td>תמונות שהועלו</td><td>יימחקו לצמיתות</td></tr>
-      <tr><td>ביקורות ודירוגים</td><td>יימחקו לצמיתות</td></tr>
-      <tr><td>רשימת מועדפים</td><td>תימחק לצמיתות</td></tr>
-      <tr><td>פרטי טראק (לבעלי טראקים)</td><td>יימחקו לצמיתות</td></tr>
-      <tr><td>מידע חשבונאי ותשלומים</td><td>יישמר 7 שנים בהתאם לחוק הישראלי</td></tr>
-    </table>
-    <p class="note">* גיבויים יימחקו תוך 30 יום ממועד המחיקה.</p>
+<section class="legal-hero">
+  <div class="wrap">
+    <h1 class="legal-title">בקשה למחיקת חשבון ונתונים</h1>
   </div>
+</section>
 
-  <div class="section">
-    <h2>מחיקת נתונים ללא מחיקת חשבון</h2>
-    <p>אם ברצונך למחוק חלק מהנתונים שלך (כגון ביקורות, תמונות או מועדפים) מבלי למחוק את החשבון, שלח אימייל עם פירוט הבקשה ונטפל בה בהקדם.</p>
-  </div>
+<div class="wrap">
+<div class="legal-body">
 
-  <div class="contact-box">
-    <p>📧 לשליחת בקשה:</p>
-    <a href="mailto:office@mytruck-il.com">office@mytruck-il.com</a>
-    <p class="note" style="margin-top:10px;">MY TRUCK — מופעלת על ידי רועי אגמי</p>
-  </div>
+  <h2>כיצד לבקש מחיקת חשבון</h2>
+  <p>אם ברצונך למחוק את חשבונך באפליקציית MY TRUCK ואת כל הנתונים המשויכים אליו, בצע את השלבים הבאים:</p>
+  <ul>
+    <li>שלח אימייל לכתובת office@mytruck-il.com</li>
+    <li>בנושא ההודעה כתוב: ״בקשה למחיקת חשבון״</li>
+    <li>ציין את כתובת האימייל שאיתה נרשמת לאפליקציה</li>
+    <li>נאשר את קבלת הבקשה תוך 3 ימי עסקים</li>
+    <li>החשבון והנתונים יימחקו לצמיתות תוך 30 יום</li>
+  </ul>
+
+  <h2>אילו נתונים יימחקו</h2>
+  <table class="legal-table">
+    <tr><th>סוג המידע</th><th>פעולה</th></tr>
+    <tr><td>פרטי חשבון (אימייל, שם, טלפון, עיר)</td><td>יימחק לצמיתות</td></tr>
+    <tr><td>תמונות שהועלו</td><td>יימחקו לצמיתות</td></tr>
+    <tr><td>ביקורות ודירוגים</td><td>יימחקו לצמיתות</td></tr>
+    <tr><td>רשימת מועדפים</td><td>תימחק לצמיתות</td></tr>
+    <tr><td>פרטי טראק (לבעלי טראקים)</td><td>יימחקו לצמיתות</td></tr>
+    <tr><td>מידע חשבונאי ותשלומים</td><td>יישמר 7 שנים בהתאם לחוק הישראלי</td></tr>
+  </table>
+  <div class="legal-note">גיבויים יימחקו תוך 30 יום ממועד המחיקה.</div>
+
+  <h2>מחיקת נתונים ללא מחיקת חשבון</h2>
+  <p>אם ברצונך למחוק חלק מהנתונים שלך (כגון ביקורות, תמונות או מועדפים) מבלי למחוק את החשבון, שלח אימייל עם פירוט הבקשה ונטפל בה בהקדם.</p>
+  <div class="legal-note">לשליחת בקשה: office@mytruck-il.com · MY TRUCK — מופעלת על ידי רועי אגמי</div>
+
 </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.07); padding-top:24px;">© 2026 MY TRUCK · מופעלת על ידי רועי אגמי · <a href="index.html" style="color:#9AA7BC;">חזרה לדף הבית</a></div>
+  </div>
+</footer>
+<script>lucide.createIcons();</script>
 </body>
 </html>
