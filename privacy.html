@@ -4,174 +4,117 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>מדיניות פרטיות — MY TRUCK</title>
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;900&display=swap" rel="stylesheet">
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Heebo',sans-serif;background:#F0F9FF;color:#1E293B;direction:rtl;padding:0;}
-nav{background:#1E3A8A;padding:16px 6%;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{color:#fff;font-size:1.2rem;font-weight:900;text-decoration:none;}
-.nav-back{color:#BAE6FD;font-size:.9rem;text-decoration:none;font-weight:600;}
-.nav-back:hover{color:#fff;}
-.content{max-width:800px;margin:0 auto;padding:40px 24px 80px;}
-h1{font-size:2rem;font-weight:900;color:#1E3A8A;text-align:center;margin-bottom:8px;}
-.updated{text-align:center;color:#888;font-size:.85rem;margin-bottom:12px;}
-.law-badge-wrap{text-align:center;margin-bottom:36px;}
-.law-badge{background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:10px 20px;display:inline-block;font-size:.85rem;color:#1E3A8A;font-weight:700;}
-.section{background:#fff;border-radius:14px;padding:24px;margin-bottom:16px;border-right:4px solid #1E3A8A;box-shadow:0 2px 8px rgba(0,0,0,.06);}
-.section.green{border-right-color:#16A34A;}
-.section.orange{border-right-color:#F59E0B;}
-h2{font-size:1.1rem;font-weight:800;color:#1E3A8A;margin-bottom:12px;}
-p{font-size:.95rem;color:#334155;line-height:1.85;margin-bottom:10px;}
-ul{list-style:none;margin-bottom:8px;}
-ul li{font-size:.95rem;color:#334155;line-height:1.8;padding:3px 0;display:flex;gap:8px;flex-direction:row-reverse;justify-content:flex-start;align-items:flex-start;}
-ul li::before{content:'•';color:#1E3A8A;font-weight:900;flex-shrink:0;margin-top:2px;}
-table{width:100%;border-collapse:collapse;margin-top:12px;font-size:.9rem;}
-th{background:#EFF6FF;color:#1E3A8A;font-weight:800;padding:10px 12px;text-align:right;border:1px solid #BFDBFE;}
-td{padding:10px 12px;border:1px solid #E2E8F0;color:#334155;line-height:1.6;text-align:right;vertical-align:top;}
-tr:nth-child(even) td{background:#F8FAFC;}
-.contact-box{background:#EFF6FF;border-radius:12px;padding:18px;margin-top:12px;text-align:center;}
-.contact-box a{color:#1E3A8A;font-weight:800;text-decoration:none;}
-.rights-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px;}
-.right-item{background:#F0FDF4;border-radius:10px;padding:14px;border-right:3px solid #16A34A;}
-.right-item h3{font-size:.9rem;font-weight:800;color:#166534;margin-bottom:4px;}
-.right-item p{font-size:.85rem;color:#4B5563;margin:0;}
-@media(max-width:600px){.rights-grid{grid-template-columns:1fr;}}
-</style>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
-<nav>
-  <a class="nav-back" href="index.html">← חזרה לדף הבית</a>
-  <a class="nav-logo" href="index.html">🚚 MY TRUCK</a>
-</nav>
-<div class="content">
-  <h1>מדיניות פרטיות</h1>
-  <div class="updated">עודכן: אפריל 2026</div>
-  <div class="law-badge-wrap">
-    <span class="law-badge">✅ עומדת בדרישות תיקון 13 לחוק הגנת הפרטיות (אוגוסט 2025)</span>
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo"><img src="icon_80.png" alt="לוגו MY TRUCK"> MY TRUCK</a>
+    <a href="index.html" class="legal-back" style="margin:0;"><i data-lucide="arrow-right" style="width:16px;"></i> חזרה לדף הבית</a>
   </div>
+</header>
 
-  <div class="section">
-    <h2>1. כללי ומידע על בעל השירות</h2>
-    <p>אפליקציית MY TRUCK מופעלת על ידי <strong>רועי אגמי</strong>.</p>
-    <p>מדיניות זו מסבירה כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך בהתאם לחוק הגנת הפרטיות התשמ"א-1981 ותיקון מס' 13 (2025).</p>
-    <p>השימוש באפליקציה מהווה הסכמה מפורשת לאיסוף ועיבוד המידע המתואר כאן.</p>
-    <div class="contact-box">
-      <p>📧 ממונה הגנת פרטיות: <a href="mailto:office@mytruck-il.com">office@mytruck-il.com</a></p>
-    </div>
+<section class="legal-hero">
+  <div class="wrap">
+    <h1 class="legal-title">מדיניות פרטיות</h1>
+    <div class="legal-meta">עודכן: אפריל 2026</div>
+    <div class="legal-badge"><i data-lucide="shield-check" style="width:15px;"></i> עומדת בדרישות תיקון 13 לחוק הגנת הפרטיות (אוגוסט 2025)</div>
   </div>
+</section>
 
-  <div class="section">
-    <h2>2. מידע שאנו אוספים ומטרות האיסוף</h2>
-    <p>אנו אוספים רק מידע הנדרש לתפעול השירות:</p>
-    <table>
-      <tr><th>סוג המידע</th><th>מטרת האיסוף</th><th>בסיס חוקי</th></tr>
-      <tr><td>אימייל וסיסמה מוצפנת</td><td>יצירת חשבון וזיהוי</td><td>הסכמה / חוזה</td></tr>
-      <tr><td>שם מלא וטלפון</td><td>יצירת קשר ושיפור חוויה</td><td>הסכמה</td></tr>
-      <tr><td>עיר מגורים</td><td>התאמת תוצאות לאזור</td><td>הסכמה</td></tr>
-      <tr><td>מיקום GPS</td><td>הצגת טראקים קרובים (בזמן שימוש בלבד, לא נשמר)</td><td>הסכמה מפורשת</td></tr>
-      <tr><td>תמונות שמועלות</td><td>תצוגת פרופיל וטראקים</td><td>הסכמה</td></tr>
-      <tr><td>ביקורות ומועדפים</td><td>תצוגה ציבורית / שמירה אישית</td><td>הסכמה</td></tr>
-      <tr><td>מידע תשלום (בעלי טראקים)</td><td>עיבוד תשלום מנוי</td><td>חוזה</td></tr>
-      <tr><td>נתוני שימוש אנונימיים</td><td>שיפור השירות</td><td>אינטרס לגיטימי</td></tr>
-    </table>
-    <p style="margin-top:12px;font-size:.85rem;color:#64748B;">* מיקום GPS אינו נשמר בשרתינו — משמש בזמן אמת בלבד.</p>
-  </div>
+<div class="wrap">
+<div class="legal-body">
 
-  <div class="section">
-    <h2>3. שיתוף מידע עם צדדים שלישיים</h2>
-    <p>אנו <strong>לא מוכרים ולא משכירים</strong> מידע אישי לאף גורם. מידע מועבר לשירותים הבאים בלבד:</p>
-    <table>
-      <tr><th>שירות</th><th>מטרה</th><th>מדינה</th></tr>
-      <tr><td>Supabase</td><td>אחסון נתונים מוצפן</td><td>ארה"ב / EU</td></tr>
-      <tr><td>Stripe</td><td>עיבוד תשלומים (בעלי טראקים בלבד)</td><td>ארה"ב</td></tr>
-      <tr><td>Google Maps</td><td>הצגת מפה ומיקום</td><td>ארה"ב</td></tr>
-      <tr><td>Expo / EAS</td><td>הפצת עדכוני אפליקציה</td><td>ארה"ב</td></tr>
-    </table>
-    <p style="margin-top:12px;font-size:.85rem;color:#64748B;">* העברת מידע לחו"ל מתבצעת בהתאם לתנאי שירות הספקים, הכפופים לתקנות GDPR.</p>
-  </div>
+  <h2>1. כללי ומידע על בעל השירות</h2>
+  <p>אפליקציית MY TRUCK מופעלת על ידי רועי אגמי. מדיניות זו מסבירה כיצד אנו אוספים, משתמשים ומגנים על המידע האישי שלך בהתאם לחוק הגנת הפרטיות התשמ״א-1981 ותיקון מס׳ 13 (2025). השימוש באפליקציה מהווה הסכמה מפורשת לאיסוף ועיבוד המידע המתואר כאן.</p>
+  <div class="legal-note">ממונה הגנת פרטיות: office@mytruck-il.com</div>
 
-  <div class="section green">
-    <h2>4. אבטחת מידע</h2>
-    <ul>
-      <li>הצפנת AES-256 לכל הנתונים באחסון</li>
-      <li>חיבור TLS 1.3 מוצפן בכל תעבורת הרשת</li>
-      <li>סיסמאות נשמרות כ-hash בלבד — לא ניתן לשחזרן</li>
-      <li>גישה לנתונים מוגבלת לצוות הניהול בלבד</li>
-      <li>הרשאות Row Level Security — כל משתמש רואה רק את הנתונים שלו</li>
-    </ul>
-    <p style="margin-top:8px;"><strong>דיווח על פרצת מידע:</strong> בהתאם לתיקון 13, במקרה של פרצת מידע משמעותית — נודיע לרשות הגנת הפרטיות ולמשתמשים המושפעים תוך <strong>72 שעות</strong>.</p>
-  </div>
+  <h2>2. מידע שאנו אוספים ומטרות האיסוף</h2>
+  <p>אנו אוספים רק מידע הנדרש לתפעול השירות:</p>
+  <table class="legal-table">
+    <tr><th>סוג המידע</th><th>מטרת האיסוף</th><th>בסיס חוקי</th></tr>
+    <tr><td>אימייל וסיסמה מוצפנת</td><td>יצירת חשבון וזיהוי</td><td>הסכמה / חוזה</td></tr>
+    <tr><td>שם מלא וטלפון</td><td>יצירת קשר ושיפור חוויה</td><td>הסכמה</td></tr>
+    <tr><td>עיר מגורים</td><td>התאמת תוצאות לאזור</td><td>הסכמה</td></tr>
+    <tr><td>מיקום GPS</td><td>הצגת טראקים קרובים (בזמן שימוש בלבד, לא נשמר)</td><td>הסכמה מפורשת</td></tr>
+    <tr><td>תמונות שמועלות</td><td>תצוגת פרופיל וטראקים</td><td>הסכמה</td></tr>
+    <tr><td>ביקורות ומועדפים</td><td>תצוגה ציבורית / שמירה אישית</td><td>הסכמה</td></tr>
+    <tr><td>מידע תשלום (בעלי טראקים)</td><td>עיבוד תשלום מנוי</td><td>חוזה</td></tr>
+    <tr><td>נתוני שימוש אנונימיים</td><td>שיפור השירות</td><td>אינטרס לגיטימי</td></tr>
+  </table>
+  <div class="legal-note">מיקום GPS אינו נשמר בשרתינו — משמש בזמן אמת בלבד.</div>
 
-  <div class="section">
-    <h2>5. משך שמירת המידע</h2>
-    <table>
-      <tr><th>סוג המידע</th><th>משך שמירה</th></tr>
-      <tr><td>נתוני חשבון פעיל</td><td>כל עוד החשבון פעיל</td></tr>
-      <tr><td>אחרי מחיקת חשבון</td><td>עד 30 יום (גיבוי בלבד), לאחר מכן נמחק לצמיתות</td></tr>
-      <tr><td>מידע חשבונאי ותשלומים</td><td>7 שנים לפי חוק החשבונאות הישראלי</td></tr>
-      <tr><td>ביקורות ציבוריות</td><td>עד מחיקת החשבון או בקשה מפורשת</td></tr>
-      <tr><td>לוגים ונתוני שימוש</td><td>עד 90 יום</td></tr>
-    </table>
-  </div>
+  <h2>3. שיתוף מידע עם צדדים שלישיים</h2>
+  <p>אנו לא מוכרים ולא משכירים מידע אישי לאף גורם. מידע מועבר לשירותים הבאים בלבד:</p>
+  <table class="legal-table">
+    <tr><th>שירות</th><th>מטרה</th><th>מדינה</th></tr>
+    <tr><td>Supabase</td><td>אחסון נתונים מוצפן</td><td>ארה״ב / EU</td></tr>
+    <tr><td>Stripe</td><td>עיבוד תשלומים (בעלי טראקים בלבד)</td><td>ארה״ב</td></tr>
+    <tr><td>Google Maps</td><td>הצגת מפה ומיקום</td><td>ארה״ב</td></tr>
+    <tr><td>Expo / EAS</td><td>הפצת עדכוני אפליקציה</td><td>ארה״ב</td></tr>
+  </table>
+  <div class="legal-note">העברת מידע לחו״ל מתבצעת בהתאם לתנאי שירות הספקים, הכפופים לתקנות GDPR.</div>
 
-  <div class="section green">
-    <h2>6. זכויותיך לפי תיקון 13</h2>
-    <div class="rights-grid">
-      <div class="right-item">
-        <h3>👁 זכות עיון</h3>
-        <p>לקבל פירוט של כל המידע השמור עליך</p>
-      </div>
-      <div class="right-item">
-        <h3>✏️ זכות תיקון</h3>
-        <p>לתקן מידע שגוי או לא מעודכן</p>
-      </div>
-      <div class="right-item">
-        <h3>🗑 זכות מחיקה</h3>
-        <p>למחוק את חשבונך וכל המידע תוך 30 יום</p>
-      </div>
-      <div class="right-item">
-        <h3>📦 זכות ניוד</h3>
-        <p>לקבל את המידע שלך בפורמט קריא</p>
-      </div>
-      <div class="right-item">
-        <h3>🚫 זכות התנגדות</h3>
-        <p>להתנגד לעיבוד מידע לצרכי שיווק</p>
-      </div>
-      <div class="right-item">
-        <h3>⏸ זכות הגבלה</h3>
-        <p>להגביל עיבוד המידע שלך בנסיבות מסוימות</p>
-      </div>
-    </div>
-    <div class="contact-box" style="margin-top:16px;">
-      <p>לממש את זכויותיך: <a href="mailto:office@mytruck-il.com">office@mytruck-il.com</a></p>
-      <p style="font-size:.85rem;color:#64748B;margin-top:6px;">נענה תוך 30 יום מקבלת הפנייה</p>
-    </div>
-  </div>
+  <h2>4. אבטחת מידע</h2>
+  <ul>
+    <li>הצפנת AES-256 לכל הנתונים באחסון</li>
+    <li>חיבור TLS 1.3 מוצפן בכל תעבורת הרשת</li>
+    <li>סיסמאות נשמרות כ-hash בלבד — לא ניתן לשחזרן</li>
+    <li>גישה לנתונים מוגבלת לצוות הניהול בלבד</li>
+    <li>הרשאות Row Level Security — כל משתמש רואה רק את הנתונים שלו</li>
+  </ul>
+  <p>דיווח על פרצת מידע: בהתאם לתיקון 13, במקרה של פרצת מידע משמעותית — נודיע לרשות הגנת הפרטיות ולמשתמשים המושפעים תוך 72 שעות.</p>
 
-  <div class="section">
-    <h2>7. עוגיות וטכנולוגיות מעקב</h2>
-    <p>האפליקציה הניידת אינה משתמשת בעוגיות. דף הנחיתה משתמש בעוגיות טכניות בלבד (Google Fonts) ללא מעקב פרסומי.</p>
-  </div>
+  <h2>5. משך שמירת המידע</h2>
+  <table class="legal-table">
+    <tr><th>סוג המידע</th><th>משך שמירה</th></tr>
+    <tr><td>נתוני חשבון פעיל</td><td>כל עוד החשבון פעיל</td></tr>
+    <tr><td>אחרי מחיקת חשבון</td><td>עד 30 יום (גיבוי בלבד), לאחר מכן נמחק לצמיתות</td></tr>
+    <tr><td>מידע חשבונאי ותשלומים</td><td>7 שנים לפי חוק החשבונאות הישראלי</td></tr>
+    <tr><td>ביקורות ציבוריות</td><td>עד מחיקת החשבון או בקשה מפורשת</td></tr>
+    <tr><td>לוגים ונתוני שימוש</td><td>עד 90 יום</td></tr>
+  </table>
 
-  <div class="section orange">
-    <h2>8. קטינים</h2>
-    <p>השירות אינו מיועד לבני פחות מ-18. מידע של קטין שיתגלה יימחק מיידית.</p>
+  <h2>6. זכויותיך לפי תיקון 13</h2>
+  <div class="rights-grid">
+    <div class="right-item"><strong>זכות עיון</strong><span>לקבל פירוט של כל המידע השמור עליך</span></div>
+    <div class="right-item"><strong>זכות תיקון</strong><span>לתקן מידע שגוי או לא מעודכן</span></div>
+    <div class="right-item"><strong>זכות מחיקה</strong><span>למחוק את חשבונך וכל המידע תוך 30 יום</span></div>
+    <div class="right-item"><strong>זכות ניוד</strong><span>לקבל את המידע שלך בפורמט קריא</span></div>
+    <div class="right-item"><strong>זכות התנגדות</strong><span>להתנגד לעיבוד מידע לצרכי שיווק</span></div>
+    <div class="right-item"><strong>זכות הגבלה</strong><span>להגביל עיבוד המידע בנסיבות מסוימות</span></div>
   </div>
+  <div class="legal-note">לממש את זכויותיך: office@mytruck-il.com · נענה תוך 30 יום מקבלת הפנייה.</div>
 
-  <div class="section">
-    <h2>9. פנייה לרשות הגנת הפרטיות</h2>
-    <p>אם לא קיבלת מענה תוך 30 יום, תוכל לפנות לרשות הגנת הפרטיות:</p>
-    <ul>
-      <li>אתר: gov.il/he/departments/the_privacy_protection_authority</li>
-      <li>טלפון: 02-5196060</li>
-    </ul>
-  </div>
+  <h2>7. עוגיות וטכנולוגיות מעקב</h2>
+  <p>האפליקציה הניידת אינה משתמשת בעוגיות. דף הנחיתה משתמש בעוגיות טכניות בלבד (Google Fonts) ללא מעקב פרסומי.</p>
 
-  <div class="section">
-    <h2>10. שינויים במדיניות</h2>
-    <p>שינויים מהותיים יוודעו לפחות <strong>14 יום מראש</strong> דרך הודעה באפליקציה. המשך שימוש מהווה הסכמה.</p>
-  </div>
+  <h2>8. קטינים</h2>
+  <p>השירות אינו מיועד לבני פחות מ-18. מידע של קטין שיתגלה יימחק מיידית.</p>
+
+  <h2>9. פנייה לרשות הגנת הפרטיות</h2>
+  <p>אם לא קיבלת מענה תוך 30 יום, תוכל לפנות לרשות הגנת הפרטיות:</p>
+  <ul>
+    <li>אתר: gov.il/he/departments/the_privacy_protection_authority</li>
+    <li>טלפון: 02-5196060</li>
+  </ul>
+
+  <h2>10. שינויים במדיניות</h2>
+  <p>שינויים מהותיים יוודעו לפחות 14 יום מראש דרך הודעה באפליקציה. המשך שימוש מהווה הסכמה.</p>
 
 </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.07); padding-top:24px;">© 2026 MY TRUCK · מופעלת על ידי רועי אגמי · <a href="index.html" style="color:#9AA7BC;">חזרה לדף הבית</a></div>
+  </div>
+</footer>
+<script>lucide.createIcons();</script>
 </body>
 </html>
