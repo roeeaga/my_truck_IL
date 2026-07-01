@@ -1,582 +1,450 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="google-site-verification" content="CZKdLhq0_Wek28wFveHQOp9GYtkJvCVJ1_CyjFh1fSY" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY TRUCK | המפה לפוד טראקים בישראל</title>
-    <meta name="description" content="MY TRUCK — המפה החיה לפוד טראקים בישראל. מיקום בזמן אמת, תפריטים מעודכנים וניווט ישיר. חינמי למשתמשים, זמין לאנדרואיד.">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        :root {
-            --navy:    #1E3A8A;   /* צבע מותג ראשי */
-            --navy-dk: #16306E;
-            --green:   #16A34A;   /* אקסנט יחיד, בשימוש מדוד */
-            --ink:     #0F172A;   /* טקסט כהה */
-            --slate:   #475569;
-            --gray:    #64748B;
-            --muted:   #94A3B8;
-            --line:    #E7EBF0;   /* גבול */
-            --surface: #F6F8FB;   /* רקע משני עדין */
-            --white:   #FFFFFF;
-            --radius:  16px;
-            --radius-sm: 12px;
-        }
+<meta charset="UTF-8">
+<meta name="google-site-verification" content="CZKdLhq0_Wek28wFveHQOp9GYtkJvCVJ1_CyjFh1fSY" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MY TRUCK | המפה החיה לפוד טראקים בישראל</title>
+<meta name="description" content="MY TRUCK — המפה החיה לפוד טראקים בישראל. מיקום בזמן אמת, תפריטים מעודכנים וניווט ישיר. חינמי למשתמשים, זמין לאנדרואיד.">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+/* ===== HERO ===== */
+.hero{position:relative; padding:70px 0 90px; overflow:hidden;
+  background:
+    radial-gradient(48% 50% at 84% 8%, rgba(16,185,129,.10) 0%, rgba(255,255,255,0) 60%),
+    radial-gradient(46% 46% at 12% 4%, rgba(30,58,138,.10) 0%, rgba(255,255,255,0) 60%);}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center;}
+.hero-badge{display:inline-flex; align-items:center; gap:8px; background:#fff;
+  border:1px solid var(--line); box-shadow:var(--shadow-sm); color:var(--slate);
+  font-size:.82rem; font-weight:600; padding:8px 16px; border-radius:999px; margin-bottom:24px;}
+.hero-badge .dot{width:8px; height:8px; border-radius:50%; background:var(--green);}
+.hero h1{font-size:3.4rem; font-weight:900; color:var(--ink); line-height:1.12;}
+.hero h1 .grad{background:linear-gradient(120deg,var(--navy),var(--green-dk));
+  -webkit-background-clip:text; background-clip:text; color:transparent;}
+.hero-desc{font-size:1.16rem; color:var(--gray); max-width:520px; margin-top:22px; line-height:1.7;}
+.hero-cta{margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;}
+.trust-bar{margin-top:34px; display:flex; gap:22px; flex-wrap:wrap; color:var(--slate); font-size:.92rem;}
+.trust-item{display:inline-flex; align-items:center; gap:7px;}
+.trust-item i{width:17px; height:17px; color:var(--green);}
 
-        * { margin:0; padding:0; box-sizing:border-box; }
-        html { scroll-behavior:smooth; }
-        body {
-            font-family:'Heebo',sans-serif;
-            background:var(--white);
-            color:var(--ink);
-            overflow-x:hidden;
-            direction:rtl;
-            line-height:1.6;
-            -webkit-font-smoothing:antialiased;
-        }
-        body.a11y-anim-off * { animation:none !important; transition:none !important; }
-        body.a11y-contrast { filter:contrast(1.25); }
+/* phone mockup */
+.phone-wrap{display:flex; justify-content:center; position:relative;}
+.phone{width:300px; height:610px; background:#0B1220; border-radius:42px; padding:12px;
+  box-shadow:0 40px 90px rgba(11,18,32,.28); position:relative;}
+.phone::before{content:''; position:absolute; top:18px; left:50%; transform:translateX(-50%);
+  width:120px; height:26px; background:#0B1220; border-radius:0 0 16px 16px; z-index:3;}
+.screen{width:100%; height:100%; border-radius:32px; overflow:hidden; position:relative;
+  background:linear-gradient(160deg,#EAF3EC 0%,#E3EEF6 100%);}
+.map-grid{position:absolute; inset:0; opacity:.5;
+  background-image:linear-gradient(rgba(30,58,138,.07) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(30,58,138,.07) 1px,transparent 1px);
+  background-size:38px 38px;}
+.map-road{position:absolute; background:#fff; opacity:.85;}
+.r1{top:32%; left:-5%; right:-5%; height:16px; transform:rotate(-7deg);}
+.r2{top:-10%; bottom:-10%; right:38%; width:15px; transform:rotate(6deg);}
+.pin{position:absolute; width:42px; height:42px; border-radius:50% 50% 50% 4px;
+  background:var(--navy); transform:rotate(45deg); display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 18px rgba(30,58,138,.4);}
+.pin i{transform:rotate(-45deg); color:#fff; width:20px; height:20px;}
+.pin.g{background:var(--green-dk); box-shadow:0 8px 18px rgba(5,150,105,.4);}
+.pin.p1{top:24%; right:24%;} .pin.p2{top:46%; right:56%;} .pin.p3{top:60%; right:30%;}
+.app-top{position:absolute; top:46px; left:14px; right:14px; z-index:2;
+  display:flex; gap:8px; justify-content:flex-end;}
+.app-chip{width:38px; height:38px; border-radius:11px; background:#fff; box-shadow:var(--shadow-sm);
+  display:flex; align-items:center; justify-content:center; color:var(--navy);}
+.app-chip i{width:18px; height:18px;}
+.app-card{position:absolute; bottom:18px; left:14px; right:14px; z-index:2;
+  background:#fff; border-radius:16px; padding:12px; display:flex; align-items:center; gap:11px;
+  box-shadow:0 14px 30px rgba(11,18,32,.16);}
+.app-card .badge{position:absolute; top:-9px; right:16px; background:var(--navy); color:#fff;
+  font-size:.6rem; font-weight:700; padding:3px 9px; border-radius:7px;}
+.app-card .thumb{width:44px; height:44px; border-radius:11px; background:var(--surface-2);
+  display:flex; align-items:center; justify-content:center; color:var(--navy); flex-shrink:0;}
+.app-card .t1{font-weight:700; font-size:.82rem; color:var(--ink);}
+.app-card .t2{font-size:.7rem; color:var(--gray); margin-top:2px;}
 
-        .wrap { max-width:1120px; margin:0 auto; padding:0 24px; }
-        section { padding:88px 0; }
-        h1,h2,h3,h4 { line-height:1.2; letter-spacing:-0.01em; }
+/* ===== generic section bits ===== */
+.center{text-align:center;}
+.center .sec-sub{margin-left:auto; margin-right:auto;}
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:50px;}
+.card h3{font-size:1.14rem; color:var(--ink); margin-bottom:10px;}
+.card p{color:var(--slate); font-size:.96rem; line-height:1.7;}
+.flist{list-style:none; margin-top:6px;}
+.flist li{display:flex; align-items:center; gap:9px; font-size:.92rem; color:var(--slate); padding:6px 0;}
+.flist i{width:15px; height:15px; color:var(--green); flex-shrink:0;}
+.tag{display:inline-block; margin-top:16px; background:var(--surface-2); color:var(--navy);
+  font-size:.74rem; font-weight:700; padding:5px 12px; border-radius:999px;}
 
-        .eyebrow {
-            font-size:0.8rem; font-weight:700; color:var(--green);
-            letter-spacing:0.12em; margin-bottom:14px;
-        }
-        .sec-title { font-size:2.1rem; font-weight:800; color:var(--ink); }
-        .sec-sub   { font-size:1.05rem; color:var(--gray); margin-top:14px; max-width:640px; line-height:1.7; }
+/* about */
+.about{background:var(--surface);}
+.about-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:46px;}
+.about-grid .wide{grid-column:1/-1;}
 
-        /* ── HEADER ── */
-        header {
-            position:sticky; top:0; z-index:100;
-            background:rgba(255,255,255,0.88);
-            backdrop-filter:blur(12px);
-            border-bottom:1px solid var(--line);
-        }
-        .header-inner {
-            max-width:1120px; margin:0 auto; padding:0 24px;
-            display:flex; align-items:center; justify-content:space-between;
-            height:66px;
-        }
-        .logo {
-            font-weight:800; font-size:1.25rem; color:var(--ink);
-            display:flex; align-items:center; gap:10px; text-decoration:none;
-        }
-        .btn-dl {
-            background:var(--navy); color:#fff;
-            padding:10px 22px; border-radius:var(--radius-sm);
-            font-weight:700; font-size:0.9rem; text-decoration:none;
-            display:inline-flex; align-items:center; gap:8px;
-            transition:background .2s;
-        }
-        .btn-dl:hover { background:var(--navy-dk); }
+/* owners */
+.owners-inner{display:grid; grid-template-columns:1fr 1fr; gap:54px; align-items:start;}
+.cta-box{background:linear-gradient(135deg,var(--navy),var(--indigo)); color:#fff;
+  border-radius:var(--radius); padding:28px; margin-top:26px;}
+.cta-box h4{font-size:1.1rem; margin-bottom:8px;}
+.cta-box p{font-size:.92rem; opacity:.85; margin-bottom:18px; line-height:1.7;}
+.cta-box .btn{background:#fff; color:var(--navy);}
+.pill-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+.pill{background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:20px;}
+.pill .icon-chip{width:40px; height:40px; margin-bottom:12px;}
+.pill .icon-chip i{width:20px; height:20px;}
+.pill-title{font-weight:700; font-size:.96rem; margin-bottom:5px;}
+.pill-text{font-size:.85rem; color:var(--gray); line-height:1.6;}
 
-        /* ── HERO ── */
-        .hero { text-align:center; padding:96px 0 80px; background:
-            radial-gradient(60% 60% at 50% 0%, #F2F6FC 0%, rgba(255,255,255,0) 70%); }
-        .hero-badge {
-            display:inline-flex; align-items:center; gap:7px;
-            background:var(--surface); border:1px solid var(--line);
-            color:var(--slate); font-size:0.82rem; font-weight:600;
-            padding:7px 16px; border-radius:999px; margin-bottom:26px;
-        }
-        .hero-appicon { width:76px; height:76px; border-radius:20px; margin-bottom:24px; box-shadow:0 12px 30px rgba(30,58,138,.14); }
-        .hero h1 { font-size:3.1rem; font-weight:800; color:var(--ink); }
-        .hero h1 .accent { color:var(--navy); }
-        .hero-desc { font-size:1.12rem; color:var(--gray); max-width:600px; margin:22px auto 0; line-height:1.7; }
-        .hero-btns { margin-top:34px; }
-        .btn-main {
-            background:var(--navy); color:#fff;
-            padding:15px 30px; border-radius:var(--radius-sm);
-            font-weight:700; font-size:1rem; text-decoration:none;
-            display:inline-flex; align-items:center; gap:9px;
-            transition:background .2s, transform .2s;
-        }
-        .btn-main:hover { background:var(--navy-dk); transform:translateY(-1px); }
-        .trust-bar {
-            margin-top:40px; display:flex; gap:26px; justify-content:center;
-            flex-wrap:wrap; color:var(--slate); font-size:0.9rem;
-        }
-        .trust-item { display:inline-flex; align-items:center; gap:7px; }
-        .trust-item i { width:16px; height:16px; color:var(--green); }
+/* pricing */
+.pricing{background:var(--surface);}
+.pricing-badge{display:inline-block; background:#fff; border:1px solid var(--line);
+  color:var(--green-dk); padding:8px 20px; border-radius:999px; font-weight:700; font-size:.86rem; margin-top:18px;}
+.plans{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px; text-align:right;}
+.plan{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:34px 30px; transition:.25s; position:relative;}
+.plan:hover{transform:translateY(-4px); box-shadow:var(--shadow);}
+.plan.featured{border:2px solid var(--navy);}
+.plan-flag{position:absolute; top:-13px; right:28px; background:var(--navy); color:#fff;
+  font-size:.74rem; font-weight:700; padding:5px 14px; border-radius:999px;}
+.plan-name{font-size:.86rem; font-weight:700; color:var(--gray); margin-bottom:8px;}
+.plan-price{font-size:2.9rem; font-weight:900; color:var(--ink); line-height:1;}
+.plan-price sup{font-size:1.1rem; font-weight:700;}
+.plan-price sub{font-size:.84rem; font-weight:400; color:var(--gray);}
+.plan-period{font-size:.82rem; color:var(--gray); margin:6px 0 26px;}
+.plan-feats{list-style:none; margin-bottom:26px;}
+.plan-feats li{display:flex; align-items:center; gap:10px; font-size:.9rem; padding:9px 0;
+  border-bottom:1px solid var(--line); color:var(--slate);}
+.plan-feats li:last-child{border-bottom:none;}
+.plan-feats i{width:16px; height:16px; color:var(--green); flex-shrink:0;}
+.plan .btn{width:100%; justify-content:center; margin-top:4px;}
+.p-note{margin-top:24px; text-align:center; font-size:.82rem; color:var(--gray);}
 
-        /* ── ABOUT ── */
-        .about { background:var(--surface); }
-        .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:44px; }
-        .about-card { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; }
-        .about-card h3 { font-size:1.15rem; font-weight:700; color:var(--ink); margin-bottom:10px; }
-        .about-card p  { color:var(--slate); font-size:0.98rem; line-height:1.75; }
-        .about-wide { grid-column:1 / -1; }
+/* contact */
+.contact{background:var(--ink); text-align:center;}
+.contact h2{font-size:2rem; color:#fff;}
+.contact p{color:var(--muted); margin:12px auto 40px;}
+.contact-cards{display:flex; gap:16px; justify-content:center; flex-wrap:wrap;}
+.ccard{background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
+  border-radius:var(--radius); padding:26px 34px; text-decoration:none; color:#fff;
+  min-width:220px; display:flex; flex-direction:column; align-items:center; gap:10px; transition:.25s;}
+.ccard:hover{background:rgba(255,255,255,.1); transform:translateY(-3px);}
+.ccard i{width:26px; height:26px; color:#fff;}
+.ccard .lbl{font-size:.72rem; font-weight:700; color:var(--muted); letter-spacing:.08em;}
+.ccard .val{font-size:.92rem; font-weight:600;}
 
-        /* ── HOW ── */
-        .how-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
-        .card {
-            background:#fff; border:1px solid var(--line);
-            border-radius:var(--radius); padding:30px;
-            transition:box-shadow .25s, transform .25s;
-        }
-        .card:hover { box-shadow:0 16px 40px rgba(15,23,42,.07); transform:translateY(-3px); }
-        .card-icon {
-            width:46px; height:46px; border-radius:12px;
-            background:#EEF2FB; color:var(--navy);
-            display:flex; align-items:center; justify-content:center; margin-bottom:18px;
-        }
-        .card-icon i { width:22px; height:22px; }
-        .card h3 { font-size:1.12rem; font-weight:700; color:var(--ink); margin-bottom:10px; }
-        .card p  { color:var(--slate); font-size:0.96rem; line-height:1.7; }
-
-        /* ── FOR WHO ── */
-        .forwho-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
-        .fcard { background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:30px; position:relative; }
-        .fcard h3 { font-size:1.12rem; font-weight:700; margin-bottom:8px; }
-        .fcard-desc { color:var(--slate); font-size:0.95rem; margin-bottom:18px; line-height:1.7; }
-        .fcard-list { list-style:none; }
-        .fcard-list li { display:flex; align-items:center; gap:9px; font-size:0.92rem; color:var(--slate); padding:6px 0; }
-        .fcard-list .ck { color:var(--green); width:15px; height:15px; flex-shrink:0; }
-        .coming-tag {
-            display:inline-block; margin-top:16px;
-            background:#EEF2FB; color:var(--navy);
-            font-size:0.75rem; font-weight:700; padding:5px 12px; border-radius:999px;
-        }
-
-        /* ── OWNERS ── */
-        .owners-inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:start; }
-        .owners-cta-box { background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:26px; margin-top:26px; }
-        .owners-cta-box h4 { font-size:1.05rem; font-weight:700; color:var(--ink); margin-bottom:8px; }
-        .owners-cta-box p  { font-size:0.92rem; color:var(--gray); margin-bottom:18px; line-height:1.7; }
-        .btn-outline {
-            display:inline-flex; align-items:center; gap:8px;
-            border:1.5px solid var(--navy); color:var(--navy);
-            padding:11px 22px; border-radius:var(--radius-sm);
-            font-weight:700; font-size:0.9rem; text-decoration:none; transition:.2s;
-        }
-        .btn-outline:hover { background:var(--navy); color:#fff; }
-        .fpill-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-        .fpill { background:#fff; border:1px solid var(--line); border-radius:var(--radius-sm); padding:20px; }
-        .fpill-icon { width:38px; height:38px; border-radius:10px; background:#EEF2FB; color:var(--navy); display:flex; align-items:center; justify-content:center; margin-bottom:12px; }
-        .fpill-icon i { width:19px; height:19px; }
-        .fpill-title { font-weight:700; font-size:0.96rem; color:var(--ink); margin-bottom:5px; }
-        .fpill-text  { font-size:0.85rem; color:var(--gray); line-height:1.6; }
-
-        /* ── PRICING ── */
-        .pricing { background:var(--surface); }
-        .pricing-badge {
-            background:#fff; border:1px solid var(--line); color:var(--green);
-            display:inline-block; padding:8px 20px; border-radius:999px;
-            font-weight:700; font-size:0.86rem; margin-top:18px;
-        }
-        .plans { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px; }
-        .plan { background:#fff; border-radius:var(--radius); padding:34px 30px; border:1px solid var(--line); transition:.25s; }
-        .plan:hover { transform:translateY(-3px); box-shadow:0 18px 44px rgba(15,23,42,.08); }
-        .plan.featured { border:1.5px solid var(--navy); }
-        .plan-name  { font-size:0.86rem; font-weight:700; color:var(--gray); margin-bottom:8px; }
-        .plan-price { font-size:2.8rem; font-weight:800; color:var(--ink); line-height:1; }
-        .plan-price sup { font-size:1rem; font-weight:600; }
-        .plan-price sub { font-size:0.82rem; font-weight:400; color:var(--gray); }
-        .plan-period { font-size:0.82rem; color:var(--gray); margin:6px 0 26px; }
-        .plan-feats { list-style:none; margin-bottom:26px; }
-        .plan-feats li { display:flex; align-items:center; gap:10px; font-size:0.9rem; padding:9px 0; border-bottom:1px solid var(--line); color:var(--slate); }
-        .plan-feats li:last-child { border-bottom:none; }
-        .pfy { color:var(--green); width:16px; height:16px; flex-shrink:0; }
-        .plan-btn { display:block; width:100%; text-align:center; padding:13px; border-radius:var(--radius-sm); font-weight:700; font-size:0.95rem; text-decoration:none; transition:.2s; }
-        .plan-btn.outline { border:1.5px solid var(--navy); color:var(--navy); }
-        .plan-btn.outline:hover { background:#EEF2FB; }
-        .plan-btn.solid { background:var(--navy); color:#fff; }
-        .plan-btn.solid:hover { background:var(--navy-dk); }
-        .p-note { margin-top:24px; text-align:center; font-size:0.82rem; color:var(--gray); }
-
-        /* ── CONTACT ── */
-        .contact { background:var(--ink); text-align:center; }
-        .contact h2 { font-size:1.9rem; font-weight:800; color:#fff; }
-        .contact p  { color:var(--muted); font-size:1rem; margin:12px auto 40px; }
-        .contact-cards { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
-        .ccard {
-            background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12);
-            border-radius:var(--radius); padding:26px 34px; text-decoration:none; color:#fff;
-            transition:.25s; min-width:220px;
-            display:flex; flex-direction:column; align-items:center; gap:10px;
-        }
-        .ccard:hover { background:rgba(255,255,255,.1); transform:translateY(-3px); }
-        .ccard-icon i { width:26px; height:26px; color:#fff; }
-        .ccard-label { font-size:0.72rem; font-weight:700; color:var(--muted); letter-spacing:0.1em; }
-        .ccard-val { font-size:0.92rem; font-weight:600; }
-
-        /* ── FOOTER ── */
-        footer { background:#0B1120; color:#64748B; padding:48px 0 24px; }
-        .footer-top { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:40px; padding-bottom:34px; border-bottom:1px solid rgba(255,255,255,.06); }
-        .footer-brand .logo { color:#fff; margin-bottom:12px; }
-        .footer-brand p { font-size:0.86rem; line-height:1.8; max-width:300px; }
-        .footer-col h5 { font-size:0.74rem; font-weight:700; color:var(--muted); letter-spacing:0.1em; margin-bottom:15px; }
-        .footer-col a { display:block; color:#64748B; text-decoration:none; font-size:0.86rem; margin-bottom:10px; transition:.2s; }
-        .footer-col a:hover { color:#fff; }
-        .footer-bottom { padding-top:22px; text-align:center; font-size:0.8rem; }
-
-        /* ── ACCESSIBILITY WIDGET ── */
-        .a11y-toggle {
-            position:fixed; bottom:20px; left:20px; z-index:200;
-            width:50px; height:50px; border-radius:50%;
-            background:var(--navy); color:#fff; border:none; cursor:pointer;
-            display:flex; align-items:center; justify-content:center;
-            box-shadow:0 6px 18px rgba(30,58,138,.35);
-        }
-        .a11y-toggle i { width:24px; height:24px; }
-        .a11y-panel {
-            position:fixed; bottom:80px; left:20px; z-index:200;
-            background:#fff; border:1px solid var(--line); border-radius:var(--radius);
-            padding:18px; width:250px; box-shadow:0 20px 50px rgba(15,23,42,.18);
-            display:none;
-        }
-        .a11y-panel.open { display:block; }
-        .a11y-panel h4 { font-size:0.95rem; margin-bottom:12px; color:var(--ink); }
-        .a11y-panel button {
-            display:flex; align-items:center; gap:8px; width:100%; text-align:right;
-            background:var(--surface); border:1px solid var(--line); border-radius:10px;
-            padding:10px 12px; margin-bottom:8px; font-family:inherit; font-size:0.88rem;
-            color:var(--slate); cursor:pointer;
-        }
-        .a11y-panel button:hover { background:#EEF2FB; }
-
-        /* ── RESPONSIVE ── */
-        @media(max-width:900px){
-            .how-grid,.forwho-grid,.owners-inner,.plans,.about-grid { grid-template-columns:1fr; }
-            .footer-top { grid-template-columns:1fr 1fr; }
-            .hero h1 { font-size:2.4rem; }
-            .sec-title { font-size:1.7rem; }
-        }
-        @media(max-width:600px){
-            .footer-top,.fpill-grid { grid-template-columns:1fr; }
-            section { padding:64px 0; }
-        }
-    </style>
+@media(max-width:900px){
+  .hero-grid,.about-grid,.owners-inner,.plans,.grid-3{grid-template-columns:1fr;}
+  .hero{padding:48px 0 70px;}
+  .phone-wrap{margin-top:30px; order:-1;}
+  .hero h1{font-size:2.6rem;}
+  .sec-title{font-size:1.8rem;}
+  .footer-top{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:600px){
+  .pill-grid,.footer-top{grid-template-columns:1fr;}
+  section{padding:64px 0;}
+}
+</style>
 </head>
 <body>
 
 <!-- HEADER -->
 <header>
-    <div class="header-inner">
-        <a href="#" class="logo">
-            <img src="icon_80.png" alt="לוגו MY TRUCK" style="width:34px;height:34px;border-radius:9px;">
-            MY TRUCK
-        </a>
-        <a href="https://play.google.com/store/apps/details?id=com.mytruckil.app" class="btn-dl" target="_blank" rel="noopener">
-            <i data-lucide="download" style="width:15px;"></i> הורד עכשיו
-        </a>
-    </div>
+  <div class="header-inner">
+    <a href="#" class="logo"><img src="icon_80.png" alt="לוגו MY TRUCK"> MY TRUCK</a>
+    <nav class="nav-links">
+      <a href="#how">איך זה עובד</a>
+      <a href="#forwho">למי זה מיועד</a>
+      <a href="#owners">לבעלי טראק</a>
+      <a href="#pricing">מחירים</a>
+    </nav>
+    <a href="https://play.google.com/store/apps/details?id=com.mytruckil.app" class="btn btn-primary btn-sm" target="_blank" rel="noopener">
+      <i data-lucide="download" style="width:15px;"></i> הורד עכשיו
+    </a>
+  </div>
 </header>
 
 <!-- HERO -->
 <section class="hero">
-    <div class="wrap">
-        <div class="hero-badge">אפליקציית פוד טראקים ישראלית</div>
-        <img src="icon_80.png" alt="אייקון MY TRUCK" class="hero-appicon">
-        <h1>מוצאים את <span class="accent">הפוד טראק</span><br>הכי טוב בסביבה</h1>
-        <p class="hero-desc">
-            MY TRUCK היא המפה החברתית הראשונה בישראל לפוד טראקים —
-            מיקום בזמן אמת, תפריטים מעודכנים וניווט ישיר. הכל במקום אחד.
-        </p>
-        <div class="hero-btns">
-            <a href="https://play.google.com/store/apps/details?id=com.mytruckil.app" class="btn-main" target="_blank" rel="noopener">
-                <i data-lucide="download" style="width:18px;"></i> הורד בחינם לאנדרואיד
-            </a>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge"><span class="dot"></span> אפליקציית פוד טראקים ישראלית</div>
+        <h1>מוצאים את <span class="grad">הפוד טראק</span> הכי טוב בסביבה</h1>
+        <p class="hero-desc">MY TRUCK היא המפה החברתית הראשונה בישראל לפוד טראקים — מיקום בזמן אמת, תפריטים מעודכנים וניווט ישיר. הכל במקום אחד.</p>
+        <div class="hero-cta">
+          <a href="https://play.google.com/store/apps/details?id=com.mytruckil.app" class="btn btn-primary" target="_blank" rel="noopener">
+            <i data-lucide="download" style="width:18px;"></i> הורד בחינם לאנדרואיד
+          </a>
+          <a href="#how" class="btn btn-ghost">איך זה עובד?</a>
         </div>
         <div class="trust-bar">
-            <div class="trust-item"><i data-lucide="check"></i> חינמי למשתמשים</div>
-            <div class="trust-item"><i data-lucide="check"></i> זמין לאנדרואיד</div>
-            <div class="trust-item"><i data-lucide="check"></i> מפה חיה בזמן אמת</div>
-            <div class="trust-item"><i data-lucide="check"></i> ללא הרשמה מחייבת</div>
+          <span class="trust-item"><i data-lucide="check"></i> חינמי למשתמשים</span>
+          <span class="trust-item"><i data-lucide="check"></i> מפה חיה בזמן אמת</span>
+          <span class="trust-item"><i data-lucide="check"></i> ללא הרשמה מחייבת</span>
         </div>
+      </div>
+      <!-- PHONE MOCKUP -->
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="screen">
+            <div class="map-grid"></div>
+            <div class="map-road r1"></div>
+            <div class="map-road r2"></div>
+            <div class="app-top">
+              <div class="app-chip"><i data-lucide="search"></i></div>
+              <div class="app-chip"><i data-lucide="locate-fixed"></i></div>
+            </div>
+            <div class="pin g p1"><i data-lucide="truck"></i></div>
+            <div class="pin p2"><i data-lucide="utensils"></i></div>
+            <div class="pin p3"><i data-lucide="coffee"></i></div>
+            <div class="app-card">
+              <span class="badge">ממומן</span>
+              <div class="thumb"><i data-lucide="truck"></i></div>
+              <div>
+                <div class="t1">בורגר שקד — בקרבתך</div>
+                <div class="t2">קבלו 10% הנחה היום</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-    <div class="wrap">
-        <div class="eyebrow">אודות</div>
-        <h2 class="sec-title">מי אנחנו</h2>
-        <p class="sec-sub">הבית של הפוד טראקים בישראל — מחברים בין אוכל מצוין לאנשים, בפארקים, בשמורות ובאירועים.</p>
-        <div class="about-grid">
-            <div class="about-card">
-                <h3>מי אנחנו</h3>
-                <p>האפליקציה הוקמה כדי לקשר בין מי שמטייל ברחבי הארץ ומחפש מקום מיוחד לעצור בו — כמו פוד טראק אותנטי בלב הטבע, בפארק, באירוע, או בכל מקום שבו הרעב פוגש הרפתקה.</p>
-            </div>
-            <div class="about-card">
-                <h3>החזון שלנו</h3>
-                <p>אנחנו מאמינים ביזמות מקומית ורוצים לעזור לבעלי העסקים הקטנים לצמוח ולהגיע לכל מטייל רעב. ביחד, אנחנו הופכים את הדרך לטעימה הרבה יותר.</p>
-            </div>
-            <div class="about-card about-wide">
-                <h3>איך זה עובד</h3>
-                <p>בעלי פוד טראקים מעדכנים את המיקום ושעות הפעילות שלהם בזמן אמת. המשתמשים רואים על מפה חיה בדיוק מה פתוח עכשיו — ולאן כדאי ללכת.</p>
-            </div>
-        </div>
+  <div class="wrap">
+    <div class="eyebrow reveal">אודות</div>
+    <h2 class="sec-title reveal">מי אנחנו</h2>
+    <p class="sec-sub reveal">הבית של הפוד טראקים בישראל — מחברים בין אוכל מצוין לאנשים, בפארקים, בשמורות ובאירועים.</p>
+    <div class="about-grid">
+      <div class="card reveal"><h3>מי אנחנו</h3><p>האפליקציה הוקמה כדי לקשר בין מי שמטייל ברחבי הארץ ומחפש מקום מיוחד לעצור בו — כמו פוד טראק אותנטי בלב הטבע, בפארק, באירוע, או בכל מקום שבו הרעב פוגש הרפתקה.</p></div>
+      <div class="card reveal"><h3>החזון שלנו</h3><p>אנחנו מאמינים ביזמות מקומית ורוצים לעזור לבעלי העסקים הקטנים לצמוח ולהגיע לכל מטייל רעב. ביחד, אנחנו הופכים את הדרך לטעימה הרבה יותר.</p></div>
+      <div class="card reveal wide"><h3>איך זה עובד</h3><p>בעלי פוד טראקים מעדכנים את המיקום ושעות הפעילות שלהם בזמן אמת. המשתמשים רואים על מפה חיה בדיוק מה פתוח עכשיו — ולאן כדאי ללכת.</p></div>
     </div>
+  </div>
 </section>
 
 <!-- HOW -->
 <section class="how" id="how">
-    <div class="wrap">
-        <div class="eyebrow">איך זה עובד</div>
-        <h2 class="sec-title">שלושה צעדים לאוכל הטוב ביותר</h2>
-        <p class="sec-sub">פשוט, מהיר, בלי הפתעות. פתח את האפליקציה ותתחיל לגלות.</p>
-        <div class="how-grid">
-            <div class="card">
-                <div class="card-icon"><i data-lucide="map-pin"></i></div>
-                <h3>ראה מה פתוח עכשיו</h3>
-                <p>מפה חיה מציגה את כל הפוד טראקים הפעילים בסביבתך — עם מיקום מדויק, שעות ותפריט מעודכן. הכל בזמן אמת, ישירות מבעל הטראק.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i data-lucide="book-open"></i></div>
-                <h3>בחר לפי תפריט ודירוג</h3>
-                <p>קרא את התפריט המלא עם מחירים מעודכנים וסקור ביקורות אמיתיות — לפני שאתה בכלל יוצא מהבית.</p>
-            </div>
-            <div class="card">
-                <div class="card-icon"><i data-lucide="navigation"></i></div>
-                <h3>נווט ישירות — לחיצה אחת</h3>
-                <p>לחצת? Waze או Google Maps נפתח מיד עם מסלול ישיר לטראק. מהחלטה לאוכל בפחות מדקה, ללא חיפוש ידני.</p>
-            </div>
-        </div>
+  <div class="wrap">
+    <div class="eyebrow reveal">איך זה עובד</div>
+    <h2 class="sec-title reveal">שלושה צעדים לאוכל הטוב ביותר</h2>
+    <p class="sec-sub reveal">פשוט, מהיר, בלי הפתעות. פתח את האפליקציה ותתחיל לגלות.</p>
+    <div class="grid-3">
+      <div class="card reveal"><div class="icon-chip"><i data-lucide="map-pin"></i></div><h3>ראה מה פתוח עכשיו</h3><p>מפה חיה מציגה את כל הפוד טראקים הפעילים בסביבתך — עם מיקום מדויק, שעות ותפריט מעודכן. הכל בזמן אמת, ישירות מבעל הטראק.</p></div>
+      <div class="card reveal"><div class="icon-chip"><i data-lucide="book-open"></i></div><h3>בחר לפי תפריט ודירוג</h3><p>קרא את התפריט המלא עם מחירים מעודכנים וסקור ביקורות אמיתיות — לפני שאתה בכלל יוצא מהבית.</p></div>
+      <div class="card reveal"><div class="icon-chip"><i data-lucide="navigation"></i></div><h3>נווט ישירות — לחיצה אחת</h3><p>לחצת? Waze או Google Maps נפתח מיד עם מסלול ישיר לטראק. מהחלטה לאוכל בפחות מדקה, ללא חיפוש ידני.</p></div>
     </div>
+  </div>
 </section>
 
 <!-- FOR WHO -->
 <section class="forwho" id="forwho">
-    <div class="wrap">
-        <div class="eyebrow">למי זה מיועד</div>
-        <h2 class="sec-title">פתרון אחד לכולם</h2>
-        <p class="sec-sub">בין אם אתה מחפש אוכל, מנהל טראק, או מתכנן אירוע — MY TRUCK עובדת בשבילך.</p>
-        <div class="forwho-grid">
-            <div class="fcard">
-                <div class="card-icon"><i data-lucide="users"></i></div>
-                <h3>מבקרים ומטיילים</h3>
-                <p class="fcard-desc">יוצאים לפארק, לאירוע, לטיול — ורוצים לדעת מה יש לאכול בסביבה. האפליקציה חינמית לחלוטין.</p>
-                <ul class="fcard-list">
-                    <li><i data-lucide="check" class="ck"></i> ראה מה פתוח עכשיו לידך</li>
-                    <li><i data-lucide="check" class="ck"></i> סנן לפי סוג מזון וכשרות</li>
-                    <li><i data-lucide="check" class="ck"></i> קרא תפריט ומחירים מראש</li>
-                    <li><i data-lucide="check" class="ck"></i> נווט ישירות בלחיצה אחת</li>
-                    <li><i data-lucide="check" class="ck"></i> שמור מועדפים וכתוב ביקורות</li>
-                </ul>
-            </div>
-            <div class="fcard">
-                <div class="card-icon"><i data-lucide="truck"></i></div>
-                <h3>בעלי פוד טראקים</h3>
-                <p class="fcard-desc">נהל את הנוכחות הדיגיטלית שלך, עדכן תפריט בזמן אמת, וחשוף את העסק ללקוחות חדשים מדי יום.</p>
-                <ul class="fcard-list">
-                    <li><i data-lucide="check" class="ck"></i> פרופיל עם תמונות ותפריט חי</li>
-                    <li><i data-lucide="check" class="ck"></i> עדכון מיקום ושעות בזמן אמת</li>
-                    <li><i data-lucide="check" class="ck"></i> קבלת דירוגים וביקורות</li>
-                    <li><i data-lucide="check" class="ck"></i> ניהול הכל מהטלפון בלבד</li>
-                    <li><i data-lucide="check" class="ck"></i> מסלול בסיסי חינמי לצמיתות</li>
-                </ul>
-            </div>
-            <div class="fcard">
-                <div class="card-icon"><i data-lucide="calendar-days"></i></div>
-                <h3>מארגני אירועים</h3>
-                <p class="fcard-desc">מתכננים אירוע ורוצים פוד טראק או שף פרטי? בקרוב תוכלו להזמין, לקבל הצעות ולשלם — הכל מהאפליקציה.</p>
-                <ul class="fcard-list">
-                    <li><i data-lucide="check" class="ck"></i> פוד טראק גדול לאירוע</li>
-                    <li><i data-lucide="check" class="ck"></i> שף פרטי לאירוע אינטימי</li>
-                    <li><i data-lucide="check" class="ck"></i> השוואת הצעות מחיר</li>
-                    <li><i data-lucide="check" class="ck"></i> תשלום מאובטח דרך האפליקציה</li>
-                </ul>
-                <span class="coming-tag">בקרוב — גרסה 2.0</span>
-            </div>
-        </div>
+  <div class="wrap">
+    <div class="eyebrow reveal">למי זה מיועד</div>
+    <h2 class="sec-title reveal">פתרון אחד לכולם</h2>
+    <p class="sec-sub reveal">בין אם אתה מחפש אוכל, מנהל טראק, או מתכנן אירוע — MY TRUCK עובדת בשבילך.</p>
+    <div class="grid-3">
+      <div class="card reveal">
+        <div class="icon-chip"><i data-lucide="users"></i></div>
+        <h3>מבקרים ומטיילים</h3>
+        <p>יוצאים לפארק, לאירוע, לטיול — ורוצים לדעת מה יש לאכול בסביבה. האפליקציה חינמית לחלוטין.</p>
+        <ul class="flist">
+          <li><i data-lucide="check"></i> ראה מה פתוח עכשיו לידך</li>
+          <li><i data-lucide="check"></i> סנן לפי סוג מזון וכשרות</li>
+          <li><i data-lucide="check"></i> קרא תפריט ומחירים מראש</li>
+          <li><i data-lucide="check"></i> נווט ישירות בלחיצה אחת</li>
+          <li><i data-lucide="check"></i> שמור מועדפים וכתוב ביקורות</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <div class="icon-chip"><i data-lucide="truck"></i></div>
+        <h3>בעלי פוד טראקים</h3>
+        <p>נהל את הנוכחות הדיגיטלית שלך, עדכן תפריט בזמן אמת, וחשוף את העסק ללקוחות חדשים מדי יום.</p>
+        <ul class="flist">
+          <li><i data-lucide="check"></i> פרופיל עם תמונות ותפריט חי</li>
+          <li><i data-lucide="check"></i> עדכון מיקום ושעות בזמן אמת</li>
+          <li><i data-lucide="check"></i> קבלת דירוגים וביקורות</li>
+          <li><i data-lucide="check"></i> ניהול הכל מהטלפון בלבד</li>
+          <li><i data-lucide="check"></i> מסלול בסיסי חינמי לצמיתות</li>
+        </ul>
+      </div>
+      <div class="card reveal">
+        <div class="icon-chip"><i data-lucide="calendar-days"></i></div>
+        <h3>מארגני אירועים</h3>
+        <p>מתכננים אירוע ורוצים פוד טראק או שף פרטי? בקרוב תוכלו להזמין, לקבל הצעות ולשלם — הכל מהאפליקציה.</p>
+        <ul class="flist">
+          <li><i data-lucide="check"></i> פוד טראק גדול לאירוע</li>
+          <li><i data-lucide="check"></i> שף פרטי לאירוע אינטימי</li>
+          <li><i data-lucide="check"></i> השוואת הצעות מחיר</li>
+          <li><i data-lucide="check"></i> תשלום מאובטח דרך האפליקציה</li>
+        </ul>
+        <span class="tag">בקרוב — גרסה 2.0</span>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- OWNERS -->
 <section class="owners" id="owners">
-    <div class="wrap">
-        <div class="owners-inner">
-            <div>
-                <div class="eyebrow">לבעלי פוד טראק</div>
-                <h2 class="sec-title">כל הכלים שצריך<br>לנהל את הטראק שלך</h2>
-                <p class="sec-sub">MY TRUCK נותנת לבעלי פוד טראקים נוכחות דיגיטלית מלאה — בלי אתר, בלי פיתוח, בלי כאב ראש. הכל מנוהל מהטלפון בלחיצות ספורות.</p>
-                <div class="owners-cta-box">
-                    <h4>חודשיים ראשונים — חינם לחלוטין</h4>
-                    <p>כל בעל פוד טראק שמצטרף עכשיו מקבל חודשיים ניסיון ללא עלות, ללא התחייבות, ללא דמי הקמה.</p>
-                    <a href="mailto:office@mytruck-il.com" class="btn-outline">
-                        <i data-lucide="mail" style="width:15px;"></i> פנה אלינו להצטרפות
-                    </a>
-                </div>
-            </div>
-            <div class="fpill-grid">
-                <div class="fpill">
-                    <div class="fpill-icon"><i data-lucide="map-pin"></i></div>
-                    <div class="fpill-title">עדכון מיקום בזמן אמת</div>
-                    <div class="fpill-text">עדכן את המיקום שלך כל יום — הלקוחות תמיד יידעו איפה אתה נמצא.</div>
-                </div>
-                <div class="fpill">
-                    <div class="fpill-icon"><i data-lucide="clipboard-list"></i></div>
-                    <div class="fpill-title">תפריט דיגיטלי חי</div>
-                    <div class="fpill-text">הוסף מנות, מחירים והסברים. עדכן בלחיצה — הלקוחות רואים שינויים מיד.</div>
-                </div>
-                <div class="fpill">
-                    <div class="fpill-icon"><i data-lucide="star"></i></div>
-                    <div class="fpill-title">דירוגים וביקורות</div>
-                    <div class="fpill-text">קבל משוב אמיתי מלקוחות ובנה מוניטין שמביא פנים חדשות.</div>
-                </div>
-                <div class="fpill">
-                    <div class="fpill-icon"><i data-lucide="bar-chart-3"></i></div>
-                    <div class="fpill-title">סטטיסטיקות ותובנות</div>
-                    <div class="fpill-text">ראה כמה אנשים צפו בפרופיל שלך — במסלול הפרימיום.</div>
-                </div>
-                <div class="fpill">
-                    <div class="fpill-icon"><i data-lucide="trending-up"></i></div>
-                    <div class="fpill-title">תיעדוף בחיפוש</div>
-                    <div class="fpill-text">הופע ראשון בתוצאות החיפוש ובמפה — ותגיע ליותר לקוחות.</div>
-                </div>
-                <div class="fpill">
-                    <div class="fpill-icon"><i data-lucide="megaphone"></i></div>
-                    <div class="fpill-title">באנר ממומן</div>
-                    <div class="fpill-text">באנר בולט על מסך הבית של כל המשתמשים — נראות מקסימלית.</div>
-                </div>
-            </div>
+  <div class="wrap">
+    <div class="owners-inner">
+      <div class="reveal">
+        <div class="eyebrow">לבעלי פוד טראק</div>
+        <h2 class="sec-title">כל הכלים שצריך<br>לנהל את הטראק שלך</h2>
+        <p class="sec-sub">MY TRUCK נותנת לבעלי פוד טראקים נוכחות דיגיטלית מלאה — בלי אתר, בלי פיתוח, בלי כאב ראש. הכל מנוהל מהטלפון בלחיצות ספורות.</p>
+        <div class="cta-box">
+          <h4>חודשיים ראשונים — חינם לחלוטין</h4>
+          <p>כל בעל פוד טראק שמצטרף עכשיו מקבל חודשיים ניסיון ללא עלות, ללא דמי הקמה.</p>
+          <a href="mailto:office@mytruck-il.com" class="btn"><i data-lucide="mail" style="width:15px;"></i> פנה אלינו להצטרפות</a>
         </div>
+      </div>
+      <div class="pill-grid">
+        <div class="pill reveal"><div class="icon-chip"><i data-lucide="map-pin"></i></div><div class="pill-title">עדכון מיקום בזמן אמת</div><div class="pill-text">עדכן את המיקום שלך כל יום — הלקוחות תמיד יידעו איפה אתה.</div></div>
+        <div class="pill reveal"><div class="icon-chip"><i data-lucide="clipboard-list"></i></div><div class="pill-title">תפריט דיגיטלי חי</div><div class="pill-text">הוסף מנות ומחירים. עדכן בלחיצה — הלקוחות רואים מיד.</div></div>
+        <div class="pill reveal"><div class="icon-chip"><i data-lucide="star"></i></div><div class="pill-title">דירוגים וביקורות</div><div class="pill-text">קבל משוב אמיתי מלקוחות ובנה מוניטין שמביא פנים חדשות.</div></div>
+        <div class="pill reveal"><div class="icon-chip"><i data-lucide="bar-chart-3"></i></div><div class="pill-title">סטטיסטיקות ותובנות</div><div class="pill-text">ראה כמה אנשים צפו בפרופיל שלך — במסלול הפרימיום.</div></div>
+        <div class="pill reveal"><div class="icon-chip"><i data-lucide="trending-up"></i></div><div class="pill-title">תיעדוף בחיפוש</div><div class="pill-text">הופע ראשון בתוצאות החיפוש ובמפה — ותגיע ליותר לקוחות.</div></div>
+        <div class="pill reveal"><div class="icon-chip"><i data-lucide="megaphone"></i></div><div class="pill-title">באנר ממומן</div><div class="pill-text">באנר בולט על מסך הבית של כל המשתמשים — נראות מקסימלית.</div></div>
+      </div>
     </div>
+  </div>
 </section>
 
 <!-- PRICING -->
 <section class="pricing" id="pricing">
-    <div class="wrap" style="text-align:center;">
-        <div class="eyebrow" style="color:var(--green);">מחירים</div>
-        <h2 class="sec-title">פשוט. שקוף. משתלם.</h2>
-        <p class="sec-sub" style="margin:14px auto 0;">למשתמשים — חינם לגמרי, לתמיד. לבעלי פוד טראקים — בסיסי חינמי ופרימיום עם כל הכלים.</p>
-        <div><span class="pricing-badge">חודשיים ניסיון חינם לכל מצטרף חדש</span></div>
-        <div class="plans" style="text-align:right;">
-            <div class="plan">
-                <div class="plan-name">מסלול בסיסי</div>
-                <div class="plan-price"><sup>₪</sup>50<sub>/חודש</sub></div>
-                <div class="plan-period">ללא דמי הקמה · ביטול בכל עת</div>
-                <ul class="plan-feats">
-                    <li><i data-lucide="check" class="pfy"></i> פרופיל עסקי מלא</li>
-                    <li><i data-lucide="check" class="pfy"></i> עד 3 תמונות</li>
-                    <li><i data-lucide="check" class="pfy"></i> הופעה במפה לפי מרחק</li>
-                    <li><i data-lucide="check" class="pfy"></i> קבלת ביקורות ודירוגים</li>
-                    <li><i data-lucide="check" class="pfy"></i> תפריט דיגיטלי בסיסי</li>
-                </ul>
-                <a href="mailto:office@mytruck-il.com" class="plan-btn outline">בחר במסלול זה</a>
-            </div>
-            <div class="plan featured">
-                <div class="plan-name">מסלול פרימיום</div>
-                <div class="plan-price"><sup>₪</sup>150<sub>/חודש</sub></div>
-                <div class="plan-period">חודשיים ראשונים חינם</div>
-                <ul class="plan-feats">
-                    <li><i data-lucide="check-circle" class="pfy"></i> <strong>פרופיל עסקי מלא + 15 תמונות</strong></li>
-                    <li><i data-lucide="check-circle" class="pfy"></i> תיעדוף בראש תוצאות החיפוש</li>
-                    <li><i data-lucide="check-circle" class="pfy"></i> באנר ממומן על מסך הבית</li>
-                    <li><i data-lucide="check-circle" class="pfy"></i> פרסום לפי מיקום והעדפות</li>
-                    <li><i data-lucide="check-circle" class="pfy"></i> תפריט דיגיטלי מלא ומתקדם</li>
-                    <li><i data-lucide="check-circle" class="pfy"></i> סטטיסטיקות מתקדמות</li>
-                    <li><i data-lucide="check-circle" class="pfy"></i> כפתור מבצעים בולט לפרסום הטבות</li>
-                </ul>
-                <a href="mailto:office@mytruck-il.com" class="plan-btn solid">להצטרפות פרימיום</a>
-            </div>
-        </div>
-        <p class="p-note">ניתן לבטל בכל עת · אין חיוב בתקופת הניסיון · מחירים כוללים מע״מ</p>
+  <div class="wrap center">
+    <div class="eyebrow reveal">מחירים</div>
+    <h2 class="sec-title reveal">פשוט. שקוף. משתלם.</h2>
+    <p class="sec-sub reveal">למשתמשים — חינם לגמרי, לתמיד. לבעלי פוד טראקים — בסיסי חינמי ופרימיום עם כל הכלים.</p>
+    <div><span class="pricing-badge reveal">חודשיים ניסיון חינם לכל מצטרף חדש</span></div>
+    <div class="plans">
+      <div class="plan reveal">
+        <div class="plan-name">מסלול בסיסי</div>
+        <div class="plan-price"><sup>₪</sup>50<sub>/חודש</sub></div>
+        <div class="plan-period">ללא דמי הקמה · ביטול בכל עת</div>
+        <ul class="plan-feats">
+          <li><i data-lucide="check"></i> פרופיל עסקי מלא</li>
+          <li><i data-lucide="check"></i> עד 3 תמונות</li>
+          <li><i data-lucide="check"></i> הופעה במפה לפי מרחק</li>
+          <li><i data-lucide="check"></i> קבלת ביקורות ודירוגים</li>
+          <li><i data-lucide="check"></i> תפריט דיגיטלי בסיסי</li>
+        </ul>
+        <a href="mailto:office@mytruck-il.com" class="btn btn-ghost">בחר במסלול זה</a>
+      </div>
+      <div class="plan featured reveal">
+        <span class="plan-flag">הכי משתלם</span>
+        <div class="plan-name">מסלול פרימיום</div>
+        <div class="plan-price"><sup>₪</sup>150<sub>/חודש</sub></div>
+        <div class="plan-period">חודשיים ראשונים חינם</div>
+        <ul class="plan-feats">
+          <li><i data-lucide="check-circle"></i> <strong>פרופיל מלא + 15 תמונות</strong></li>
+          <li><i data-lucide="check-circle"></i> תיעדוף בראש תוצאות החיפוש</li>
+          <li><i data-lucide="check-circle"></i> באנר ממומן על מסך הבית</li>
+          <li><i data-lucide="check-circle"></i> פרסום לפי מיקום והעדפות</li>
+          <li><i data-lucide="check-circle"></i> תפריט דיגיטלי מלא ומתקדם</li>
+          <li><i data-lucide="check-circle"></i> סטטיסטיקות מתקדמות</li>
+          <li><i data-lucide="check-circle"></i> כפתור מבצעים בולט לפרסום הטבות</li>
+        </ul>
+        <a href="mailto:office@mytruck-il.com" class="btn btn-primary">להצטרפות פרימיום</a>
+      </div>
     </div>
+    <p class="p-note">ניתן לבטל בכל עת · אין חיוב בתקופת הניסיון · מחירים כוללים מע״מ</p>
+  </div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-    <div class="wrap">
-        <h2>יש שאלות? נשמח לעזור</h2>
-        <p>צוות MY TRUCK זמין לכל שאלה, הצעה או בקשת שיתוף פעולה.</p>
-        <div class="contact-cards">
-            <a href="mailto:office@mytruck-il.com" class="ccard">
-                <div class="ccard-icon"><i data-lucide="mail"></i></div>
-                <div class="ccard-label">מייל</div>
-                <div class="ccard-val">office@mytruck-il.com</div>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61589133911718" target="_blank" rel="noopener" class="ccard">
-                <div class="ccard-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M24 12.073C24 5.404 18.627 0 12 0S0 5.404 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.41c0-3.025 1.791-4.697 4.533-4.697 1.312 0 2.686.235 2.686.235v2.97h-1.513c-1.491 0-1.956.93-1.956 1.886v2.269h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/></svg>
-                </div>
-                <div class="ccard-label">פייסבוק</div>
-                <div class="ccard-val">MY TRUCK Israel</div>
-            </a>
-        </div>
+  <div class="wrap">
+    <h2 class="reveal">יש שאלות? נשמח לעזור</h2>
+    <p class="reveal">צוות MY TRUCK זמין לכל שאלה, הצעה או בקשת שיתוף פעולה.</p>
+    <div class="contact-cards">
+      <a href="mailto:office@mytruck-il.com" class="ccard reveal">
+        <i data-lucide="mail"></i><span class="lbl">מייל</span><span class="val">office@mytruck-il.com</span>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61589133911718" target="_blank" rel="noopener" class="ccard reveal">
+        <i data-lucide="facebook"></i><span class="lbl">פייסבוק</span><span class="val">MY TRUCK Israel</span>
+      </a>
     </div>
+  </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-    <div class="wrap">
-        <div class="footer-top">
-            <div class="footer-brand">
-                <div class="logo">
-                    <img src="icon_80.png" alt="לוגו MY TRUCK" style="width:28px;height:28px;border-radius:8px;"> MY TRUCK
-                </div>
-                <p>הבית של הפוד טראקים בישראל. מחברים בין אוכל מצוין לאנשים — בפארקים, שמורות ואירועים.</p>
-            </div>
-            <div class="footer-col">
-                <h5>ניווט</h5>
-                <a href="#about">אודות</a>
-                <a href="#how">איך זה עובד</a>
-                <a href="#forwho">למי זה מיועד</a>
-                <a href="#owners">לבעלי טראק</a>
-                <a href="#pricing">מחירים</a>
-            </div>
-            <div class="footer-col">
-                <h5>משפטי</h5>
-                <a href="privacy.html">מדיניות פרטיות</a>
-                <a href="terms.html">תנאי שימוש</a>
-                <a href="delete-account.html">מחיקת חשבון</a>
-                <a href="#accessibility">הצהרת נגישות</a>
-            </div>
-            <div class="footer-col">
-                <h5>יצירת קשר</h5>
-                <a href="mailto:office@mytruck-il.com">office@mytruck-il.com</a>
-                <a href="https://www.facebook.com/profile.php?id=61589133911718" target="_blank" rel="noopener">פייסבוק</a>
-            </div>
-        </div>
-        <div id="accessibility" style="padding-top:22px; font-size:0.78rem; color:#475569; line-height:1.7; max-width:760px;">
-            <strong style="color:#94A3B8;">הצהרת נגישות:</strong>
-            אתר זה שואף לעמוד בתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), ומציע כלי נגישות (הגדלת טקסט, ניגודיות, עצירת אנימציות) באמצעות הכפתור בפינת המסך. נתקלתם בבעיית נגישות? כתבו לנו ל-office@mytruck-il.com ונטפל בהקדם.
-        </div>
-        <div class="footer-bottom">© 2026 MY TRUCK · כל הזכויות שמורות</div>
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="logo"><img src="icon_80.png" alt="לוגו MY TRUCK" style="width:28px;height:28px;border-radius:8px;"> MY TRUCK</div>
+        <p>הבית של הפוד טראקים בישראל. מחברים בין אוכל מצוין לאנשים — בפארקים, שמורות ואירועים.</p>
+      </div>
+      <div class="footer-col">
+        <h5>ניווט</h5>
+        <a href="#about">אודות</a>
+        <a href="#how">איך זה עובד</a>
+        <a href="#forwho">למי זה מיועד</a>
+        <a href="#owners">לבעלי טראק</a>
+        <a href="#pricing">מחירים</a>
+      </div>
+      <div class="footer-col">
+        <h5>משפטי</h5>
+        <a href="privacy.html">מדיניות פרטיות</a>
+        <a href="terms.html">תנאי שימוש</a>
+        <a href="disclaimer.html">הסרת אחריות</a>
+        <a href="delete-account.html">מחיקת חשבון</a>
+        <a href="#accessibility">הצהרת נגישות</a>
+      </div>
+      <div class="footer-col">
+        <h5>יצירת קשר</h5>
+        <a href="mailto:office@mytruck-il.com">office@mytruck-il.com</a>
+        <a href="https://www.facebook.com/profile.php?id=61589133911718" target="_blank" rel="noopener">פייסבוק</a>
+      </div>
     </div>
+    <div class="footer-legal" id="accessibility">
+      <strong style="color:#9AA7BC;">הצהרת נגישות:</strong>
+      אתר זה שואף לעמוד בתקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות). זמינים כלי נגישות (הגדלת טקסט, ניגודיות, עצירת אנימציות) באמצעות הכפתור בפינת המסך. נתקלתם בבעיה? כתבו ל-office@mytruck-il.com ונטפל בהקדם.
+    </div>
+    <div class="footer-bottom">© 2026 MY TRUCK · מופעלת על ידי רועי אגמי · כל הזכויות שמורות</div>
+  </div>
 </footer>
 
-<!-- ACCESSIBILITY WIDGET -->
-<button class="a11y-toggle" id="a11yToggle" aria-label="פתיחת תפריט נגישות" aria-expanded="false">
-    <i data-lucide="accessibility"></i>
-</button>
+<!-- A11Y WIDGET -->
+<button class="a11y-toggle" id="a11yToggle" aria-label="פתיחת תפריט נגישות" aria-expanded="false"><i data-lucide="accessibility"></i></button>
 <div class="a11y-panel" id="a11yPanel" role="dialog" aria-label="כלי נגישות">
-    <h4>נגישות</h4>
-    <button id="a11yFontInc"><i data-lucide="zoom-in" style="width:16px;"></i> הגדלת טקסט</button>
-    <button id="a11yFontDec"><i data-lucide="zoom-out" style="width:16px;"></i> הקטנת טקסט</button>
-    <button id="a11yContrast"><i data-lucide="contrast" style="width:16px;"></i> ניגודיות גבוהה</button>
-    <button id="a11yAnim"><i data-lucide="pause" style="width:16px;"></i> עצירת אנימציות</button>
-    <button id="a11yReset"><i data-lucide="rotate-ccw" style="width:16px;"></i> איפוס</button>
+  <h4>נגישות</h4>
+  <button id="a11yInc"><i data-lucide="zoom-in" style="width:16px;"></i> הגדלת טקסט</button>
+  <button id="a11yDec"><i data-lucide="zoom-out" style="width:16px;"></i> הקטנת טקסט</button>
+  <button id="a11yContrast"><i data-lucide="contrast" style="width:16px;"></i> ניגודיות גבוהה</button>
+  <button id="a11yAnim"><i data-lucide="pause" style="width:16px;"></i> עצירת אנימציות</button>
+  <button id="a11yReset"><i data-lucide="rotate-ccw" style="width:16px;"></i> איפוס</button>
 </div>
 
 <script>
-    lucide.createIcons();
-    (function(){
-        var html = document.documentElement, body = document.body;
-        var step = 0;
-        var toggle = document.getElementById('a11yToggle');
-        var panel  = document.getElementById('a11yPanel');
-        toggle.addEventListener('click', function(){
-            var open = panel.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-        function applyFont(){ html.style.fontSize = (100 + step*10) + '%'; }
-        document.getElementById('a11yFontInc').onclick = function(){ if(step<4){step++;applyFont();} };
-        document.getElementById('a11yFontDec').onclick = function(){ if(step>-2){step--;applyFont();} };
-        document.getElementById('a11yContrast').onclick = function(){ body.classList.toggle('a11y-contrast'); };
-        document.getElementById('a11yAnim').onclick = function(){ body.classList.toggle('a11y-anim-off'); };
-        document.getElementById('a11yReset').onclick = function(){
-            step=0; applyFont(); body.classList.remove('a11y-contrast','a11y-anim-off');
-        };
-    })();
+lucide.createIcons();
+/* scroll reveal */
+(function(){
+  var els=document.querySelectorAll('.reveal');
+  if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in');});return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}});},{threshold:.12});
+  els.forEach(function(e){io.observe(e);});
+})();
+/* a11y */
+(function(){
+  var html=document.documentElement, body=document.body, step=0;
+  var t=document.getElementById('a11yToggle'), p=document.getElementById('a11yPanel');
+  t.addEventListener('click',function(){var o=p.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false');});
+  function f(){html.style.fontSize=(100+step*10)+'%';}
+  document.getElementById('a11yInc').onclick=function(){if(step<4){step++;f();}};
+  document.getElementById('a11yDec').onclick=function(){if(step>-2){step--;f();}};
+  document.getElementById('a11yContrast').onclick=function(){body.classList.toggle('a11y-contrast');};
+  document.getElementById('a11yAnim').onclick=function(){body.classList.toggle('a11y-anim-off');};
+  document.getElementById('a11yReset').onclick=function(){step=0;f();body.classList.remove('a11y-contrast','a11y-anim-off');};
+})();
 </script>
 </body>
 </html>
